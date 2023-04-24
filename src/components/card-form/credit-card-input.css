@@ -1,0 +1,41 @@
+.credit-card-input {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  font-family: proxima-nova, sans-serif;
+  padding: 11px;
+  background: none;
+  outline: none;
+  border: 1px;
+  margin: 0;
+  box-sizing: border-box;
+  caret-color: #B40099;
+}
+
+.credit-card-input:-webkit-autofill:hover,
+.credit-card-input:-webkit-autofill:focus,
+.credit-card-input:-webkit-autofill:active {
+  transition: color 9999s ease-out, background-color 9999s ease-out;
+  transition-delay: 9999s;
+  -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+  -webkit-transition-delay: 9999s;
+}
+
+.credit-card-input::placeholder {
+  font-family: proxima-nova, sans-serif;
+}
+
+.credit-card-input-wrapper {
+  border-radius: 4px 4px 0 0;
+  width: 100%;
+}
+
+.credit-card-input-wrapper:focus-within {
+  border: 1px solid #A0A0A0;
+}
+
+
+
+
+
