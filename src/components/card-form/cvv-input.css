@@ -1,5 +1,5 @@
-.credit-card-input {
-  width: 460px;
+.cvv-input {
+  width: 150px;
   font-size: 16px;
   font-weight: 400;
   color: white;
@@ -7,30 +7,30 @@
   padding: 11px;
   background: none;
   outline: none;
-  border: 1px;
   margin: 0;
   box-sizing: border-box;
   caret-color: #B40099;
-  border: 1px solid rgb(70,70,70);
-  border-radius: 4px 4px 0 0;
+  border-left: 1px solid rgb(70,70,70);
+  border-right: 1px solid rgb(70,70,70);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
-.credit-card-input:-webkit-autofill:hover,
-.credit-card-input:-webkit-autofill:focus,
-.credit-card-input:-webkit-autofill:active {
+.cvv-input:-webkit-autofill:hover,
+.cvv-input:-webkit-autofill:focus,
+.cvv-input:-webkit-autofill:active {
   transition: color 9999s ease-out, background-color 9999s ease-out;
   transition-delay: 9999s;
   -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
   -webkit-transition-delay: 9999s;
 }
 
-.credit-card-input::placeholder {
+.cvv-input::placeholder {
   font-family: proxima-nova, sans-serif;
 }
 
-.credit-card-input:focus-within {
+.cvv-input:focus-within {
   border: 1px solid #A0A0A0;
-  border-radius: 4px 4px 0 0;
 }
 
 

@@ -1,4 +1,5 @@
 import { Component, h, State, Event, EventEmitter } from '@stencil/core';
+import { removeNaNFromString } from '../../utils/utils';
 
 @Component({
   tag: 'credit-card-input',
@@ -13,19 +14,14 @@ export class CreditCardInput {
     console.log('UPDATED VALUE',this.value);
   }
 
-  private removeNaNFromCardNumber = (cardNumberValue: string | undefined) => {
-    return cardNumberValue ? cardNumberValue.replace(/\D/g,'') : '';
-  };
-
-  private handleOnChange = (event: KeyboardEvent) => {
-    console.log(event);
+  private handleOnKeyDown = (event: KeyboardEvent) => {
     if(!["0","1","2","3","4","5","6","7","8","9", "Backspace" ].includes(event.key) || (this.value.length > 18 && event.key !== "Backspace")) {
       event.preventDefault();
     }
   }
 
   private handleOnInput = (event: InputEvent) => {
-    let newValue = this.removeNaNFromCardNumber((event.target as HTMLInputElement).value);
+    let newValue = removeNaNFromString((event.target as HTMLInputElement).value);
     const separationPositions = [4, 4, 4, 4];
 
     let separatedCardNumber = '';
@@ -39,14 +35,11 @@ export class CreditCardInput {
       }
     }
     separatedCardNumber += newValue.substr(position);
-    console.log("separatedCardNumber", separatedCardNumber)
     this.value = separatedCardNumber;
     this.changed.emit(separatedCardNumber);
   }
 
   render() {
-    return (<div class="credit-card-input-wrapper">
-        <input value={this.value} onKeyDown={this.handleOnChange} onInput={this.handleOnInput} class="credit-card-input" placeholder='Card number'  />
-      </div>);
+    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class="credit-card-input" placeholder='Card number' />;
   }
 }

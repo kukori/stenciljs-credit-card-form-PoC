@@ -9,30 +9,6 @@
     <script nomodule src="/build/my-components.js"></script>
   </head>
   <body style="background-color: #303030;">
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-    <my-alert kind="info" text="Very important alert!"></my-alert>
-    <my-alert kind="success" text="All good!"></my-alert>
-    <my-alert kind="alert" text="Somthing went wrong!"></my-alert>
-
-    <my-tabs active-tab="Tab1">
-      <my-tab name="Tab1">Tab One</my-tab>
-      <my-tab name="Tab2">Tab Two</my-tab>
-      <my-tab name="Tab3">Tab Three</my-tab>
-    </my-tabs>
-
-    <card-form-container>
-      <credit-card-input/>
-    </card-form-container>
-
-    <script>
-      const handleAcknowledge = (event) => {
-        console.log(event.target.text, event.detail.when);
-      } 
-      document.addEventListener("acknowledge", handleAcknowledge)
-      const handleTabActivate = (event) => {
-        console.log(event.detail.name);
-      } 
-      document.addEventListener("tabActivate", handleTabActivate)
-    </script>
+    <card-form-container/>
   </body>
 </html>

@@ -10,9 +10,15 @@ import { TabActivateEvent } from "./components/my-tab/my-tab";
 export { AcknowledgeEvent } from "./components/my-alert/my-alert";
 export { TabActivateEvent } from "./components/my-tab/my-tab";
 export namespace Components {
+    interface CardExpirationInput {
+    }
     interface CardFormContainer {
     }
+    interface CardHolderInput {
+    }
     interface CreditCardInput {
+    }
+    interface CvvInput {
     }
     interface MyAlert {
         "kind": "info" | "success" | "error";
@@ -40,9 +46,21 @@ export namespace Components {
         "activeTab": string;
     }
 }
+export interface CardExpirationInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCardExpirationInputElement;
+}
+export interface CardHolderInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCardHolderInputElement;
+}
 export interface CreditCardInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLCreditCardInputElement;
+}
+export interface CvvInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCvvInputElement;
 }
 export interface MyAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -53,17 +71,35 @@ export interface MyTabCustomEvent<T> extends CustomEvent<T> {
     target: HTMLMyTabElement;
 }
 declare global {
+    interface HTMLCardExpirationInputElement extends Components.CardExpirationInput, HTMLStencilElement {
+    }
+    var HTMLCardExpirationInputElement: {
+        prototype: HTMLCardExpirationInputElement;
+        new (): HTMLCardExpirationInputElement;
+    };
     interface HTMLCardFormContainerElement extends Components.CardFormContainer, HTMLStencilElement {
     }
     var HTMLCardFormContainerElement: {
         prototype: HTMLCardFormContainerElement;
         new (): HTMLCardFormContainerElement;
     };
+    interface HTMLCardHolderInputElement extends Components.CardHolderInput, HTMLStencilElement {
+    }
+    var HTMLCardHolderInputElement: {
+        prototype: HTMLCardHolderInputElement;
+        new (): HTMLCardHolderInputElement;
+    };
     interface HTMLCreditCardInputElement extends Components.CreditCardInput, HTMLStencilElement {
     }
     var HTMLCreditCardInputElement: {
         prototype: HTMLCreditCardInputElement;
         new (): HTMLCreditCardInputElement;
+    };
+    interface HTMLCvvInputElement extends Components.CvvInput, HTMLStencilElement {
+    }
+    var HTMLCvvInputElement: {
+        prototype: HTMLCvvInputElement;
+        new (): HTMLCvvInputElement;
     };
     interface HTMLMyAlertElement extends Components.MyAlert, HTMLStencilElement {
     }
@@ -90,8 +126,11 @@ declare global {
         new (): HTMLMyTabsElement;
     };
     interface HTMLElementTagNameMap {
+        "card-expiration-input": HTMLCardExpirationInputElement;
         "card-form-container": HTMLCardFormContainerElement;
+        "card-holder-input": HTMLCardHolderInputElement;
         "credit-card-input": HTMLCreditCardInputElement;
+        "cvv-input": HTMLCvvInputElement;
         "my-alert": HTMLMyAlertElement;
         "my-component": HTMLMyComponentElement;
         "my-tab": HTMLMyTabElement;
@@ -99,10 +138,19 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface CardExpirationInput {
+        "onChanged"?: (event: CardExpirationInputCustomEvent<string>) => void;
+    }
     interface CardFormContainer {
+    }
+    interface CardHolderInput {
+        "onChanged"?: (event: CardHolderInputCustomEvent<string>) => void;
     }
     interface CreditCardInput {
         "onChanged"?: (event: CreditCardInputCustomEvent<string>) => void;
+    }
+    interface CvvInput {
+        "onChanged"?: (event: CvvInputCustomEvent<string>) => void;
     }
     interface MyAlert {
         "kind"?: "info" | "success" | "error";
@@ -132,8 +180,11 @@ declare namespace LocalJSX {
         "activeTab"?: string;
     }
     interface IntrinsicElements {
+        "card-expiration-input": CardExpirationInput;
         "card-form-container": CardFormContainer;
+        "card-holder-input": CardHolderInput;
         "credit-card-input": CreditCardInput;
+        "cvv-input": CvvInput;
         "my-alert": MyAlert;
         "my-component": MyComponent;
         "my-tab": MyTab;
@@ -144,8 +195,11 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "card-expiration-input": LocalJSX.CardExpirationInput & JSXBase.HTMLAttributes<HTMLCardExpirationInputElement>;
             "card-form-container": LocalJSX.CardFormContainer & JSXBase.HTMLAttributes<HTMLCardFormContainerElement>;
+            "card-holder-input": LocalJSX.CardHolderInput & JSXBase.HTMLAttributes<HTMLCardHolderInputElement>;
             "credit-card-input": LocalJSX.CreditCardInput & JSXBase.HTMLAttributes<HTMLCreditCardInputElement>;
+            "cvv-input": LocalJSX.CvvInput & JSXBase.HTMLAttributes<HTMLCvvInputElement>;
             "my-alert": LocalJSX.MyAlert & JSXBase.HTMLAttributes<HTMLMyAlertElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-tab": LocalJSX.MyTab & JSXBase.HTMLAttributes<HTMLMyTabElement>;

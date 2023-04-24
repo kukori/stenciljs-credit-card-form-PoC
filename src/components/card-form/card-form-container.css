@@ -1,4 +1,10 @@
 .card-form-container {
   display: flex;
+  flex-direction: column;
+  width: 460px;
+}
+
+.expiration-cvv-container {
+  display: flex;
   width: 460px;
 }
