@@ -1,4 +1,4 @@
-import { Component, h, State, Event, EventEmitter } from '@stencil/core';
+import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
 import { removeNaNFromString } from '../../utils/utils';
 
 @Component({
@@ -7,6 +7,7 @@ import { removeNaNFromString } from '../../utils/utils';
   shadow: true,
 })
 export class CardExpirationInput {
+  @Prop() error: boolean;
   @State() value: string = "";
   @Event() changed: EventEmitter<string>;
 
@@ -43,7 +44,11 @@ export class CardExpirationInput {
     this.changed.emit(newValue);
   }
 
+  private getClass = () => {
+    return this.error ?  "card-expiration-input error" : "card-expiration-input";
+  }
+
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class="card-expiration-input" placeholder='MM / YY' />;
+    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='MM / YY' />;
   }
 }

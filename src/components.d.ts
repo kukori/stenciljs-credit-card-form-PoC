@@ -11,14 +11,18 @@ export { AcknowledgeEvent } from "./components/my-alert/my-alert";
 export { TabActivateEvent } from "./components/my-tab/my-tab";
 export namespace Components {
     interface CardExpirationInput {
+        "error": boolean;
     }
     interface CardFormContainer {
     }
     interface CardHolderInput {
+        "error": boolean;
     }
     interface CreditCardInput {
+        "error": boolean;
     }
     interface CvvInput {
+        "error": boolean;
     }
     interface MyAlert {
         "kind": "info" | "success" | "error";
@@ -139,17 +143,21 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CardExpirationInput {
+        "error"?: boolean;
         "onChanged"?: (event: CardExpirationInputCustomEvent<string>) => void;
     }
     interface CardFormContainer {
     }
     interface CardHolderInput {
+        "error"?: boolean;
         "onChanged"?: (event: CardHolderInputCustomEvent<string>) => void;
     }
     interface CreditCardInput {
+        "error"?: boolean;
         "onChanged"?: (event: CreditCardInputCustomEvent<string>) => void;
     }
     interface CvvInput {
+        "error"?: boolean;
         "onChanged"?: (event: CvvInputCustomEvent<string>) => void;
     }
     interface MyAlert {

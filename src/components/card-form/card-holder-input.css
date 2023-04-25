@@ -16,6 +16,10 @@
   border-radius: 0 0 4px 4px;
 }
 
+.card-holder-input.error {
+  border: 1px solid rgb(168, 50, 88);
+}
+
 .card-holder-input:-webkit-autofill:hover,
 .card-holder-input:-webkit-autofill:focus,
 .card-holder-input:-webkit-autofill:active {

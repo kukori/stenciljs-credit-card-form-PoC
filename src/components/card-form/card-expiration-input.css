@@ -16,6 +16,10 @@
   border-bottom: 1px solid transparent;
 }
 
+.card-expiration-input.error {
+  border: 1px solid rgb(168, 50, 88);
+}
+
 .card-expiration-input:-webkit-autofill:hover,
 .card-expiration-input:-webkit-autofill:focus,
 .card-expiration-input:-webkit-autofill:active {

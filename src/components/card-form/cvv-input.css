@@ -16,6 +16,10 @@
   border-bottom: 1px solid transparent;
 }
 
+.cvv-input.error {
+  border: 1px solid rgb(168, 50, 88);
+}
+
 .cvv-input:-webkit-autofill:hover,
 .cvv-input:-webkit-autofill:focus,
 .cvv-input:-webkit-autofill:active {
