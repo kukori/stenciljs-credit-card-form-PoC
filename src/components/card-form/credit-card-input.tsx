@@ -28,13 +28,13 @@ export class CreditCardInput {
     let position = 0;
     for (const separationPosition of separationPositions) {
       if (newValue.length > position + separationPosition) {
-        separatedCardNumber += newValue.substr(position, separationPosition) + ' ';
+        separatedCardNumber += newValue.slice(position, position + separationPosition) + ' ';
         position += separationPosition;
       } else {
         break;
       }
     }
-    separatedCardNumber += newValue.substr(position);
+    separatedCardNumber += newValue.slice(position);
     this.value = separatedCardNumber;
     this.changed.emit(separatedCardNumber);
   }

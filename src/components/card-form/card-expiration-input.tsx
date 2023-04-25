@@ -10,7 +10,7 @@ export class CardExpirationInput {
   @State() value: string = "";
   @Event() changed: EventEmitter<string>;
 
-  private handleOnChange = (event: KeyboardEvent) => {
+  private handleOnKeyDown = (event: KeyboardEvent) => {
     console.log(event);
     if(!["0","1","2","3","4","5","6","7","8","9", "Backspace" ].includes(event.key) || (this.value.length > 6 && event.key !== "Backspace")) {
       event.preventDefault();
@@ -25,18 +25,18 @@ export class CardExpirationInput {
     let position = 0;
     for (const separationPosition of separationPositions) {
       if (newValue.length > position + separationPosition) {
-        expirationDate += newValue.substr(position, separationPosition) + ' / ';
+        expirationDate += newValue.substring(position, separationPosition) + ' / ';
         position += separationPosition;
       } else {
         break;
       }
     }
-    expirationDate += newValue.substr(position);
+    expirationDate += newValue.substring(position);
     this.value = expirationDate;
     this.changed.emit(expirationDate);
   }
 
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnChange} onInput={this.handleOnInput} class="card-expiration-input" placeholder='MM / YY' />;
+    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class="card-expiration-input" placeholder='MM / YY' />;
   }
 }

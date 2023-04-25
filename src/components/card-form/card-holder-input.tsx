@@ -9,7 +9,7 @@ export class CreditCardInput {
   @State() value: string = "";
   @Event() changed: EventEmitter<string>;
 
-  private handleOnChange = (event: KeyboardEvent) => {
+  private handleOnKeyDown = (event: KeyboardEvent) => {
     if(["0","1","2","3","4","5","6","7","8","9"].includes(event.key)) {
       event.preventDefault();
     }
@@ -22,6 +22,6 @@ export class CreditCardInput {
   }
 
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnChange} onInput={this.handleOnInput} class="card-holder-input" placeholder='Cardholder Name' />;
+    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class="card-holder-input" placeholder='Cardholder Name' />;
   }
 }
