@@ -17,23 +17,30 @@ export class CardExpirationInput {
     }
   }
 
-  private handleOnInput = (event: InputEvent) => {
-    let newValue = removeNaNFromString((event.target as HTMLInputElement).value);
-    const separationPositions = [2];
-
-    let expirationDate = '';
-    let position = 0;
-    for (const separationPosition of separationPositions) {
-      if (newValue.length > position + separationPosition) {
-        expirationDate += newValue.substring(position, separationPosition) + ' / ';
-        position += separationPosition;
-      } else {
-        break;
-      }
+  private formatMonths = (cardDateValue: string): string => {
+    if (cardDateValue.match(/^[2-9]/)) {
+      return '0' + cardDateValue;
     }
-    expirationDate += newValue.substring(position);
-    this.value = expirationDate;
-    this.changed.emit(expirationDate);
+
+    const months = +cardDateValue.slice(0, 2);
+    if (months > 12) {
+      return `12${cardDateValue.slice(2)}`;
+    }
+
+    return cardDateValue;
+  };
+
+  private formatDate = (cardDateValue: string): string => {
+    if (cardDateValue.length > 2) {
+      return cardDateValue.slice(0, 2) + ' / ' + cardDateValue.slice(2);
+    }
+    return cardDateValue;
+  };
+
+  private handleOnInput = (event: InputEvent) => {
+    const newValue = this.formatDate(this.formatMonths(removeNaNFromString((event.target as HTMLInputElement).value)));
+    this.value = newValue;
+    this.changed.emit(newValue);
   }
 
   render() {
