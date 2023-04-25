@@ -24,6 +24,8 @@ export namespace Components {
     interface CvvInput {
         "error": boolean;
     }
+    interface ErrorMessage {
+    }
     interface MyAlert {
         "kind": "info" | "success" | "error";
         "text": string;
@@ -105,6 +107,12 @@ declare global {
         prototype: HTMLCvvInputElement;
         new (): HTMLCvvInputElement;
     };
+    interface HTMLErrorMessageElement extends Components.ErrorMessage, HTMLStencilElement {
+    }
+    var HTMLErrorMessageElement: {
+        prototype: HTMLErrorMessageElement;
+        new (): HTMLErrorMessageElement;
+    };
     interface HTMLMyAlertElement extends Components.MyAlert, HTMLStencilElement {
     }
     var HTMLMyAlertElement: {
@@ -135,6 +143,7 @@ declare global {
         "card-holder-input": HTMLCardHolderInputElement;
         "credit-card-input": HTMLCreditCardInputElement;
         "cvv-input": HTMLCvvInputElement;
+        "error-message": HTMLErrorMessageElement;
         "my-alert": HTMLMyAlertElement;
         "my-component": HTMLMyComponentElement;
         "my-tab": HTMLMyTabElement;
@@ -159,6 +168,8 @@ declare namespace LocalJSX {
     interface CvvInput {
         "error"?: boolean;
         "onChanged"?: (event: CvvInputCustomEvent<string>) => void;
+    }
+    interface ErrorMessage {
     }
     interface MyAlert {
         "kind"?: "info" | "success" | "error";
@@ -193,6 +204,7 @@ declare namespace LocalJSX {
         "card-holder-input": CardHolderInput;
         "credit-card-input": CreditCardInput;
         "cvv-input": CvvInput;
+        "error-message": ErrorMessage;
         "my-alert": MyAlert;
         "my-component": MyComponent;
         "my-tab": MyTab;
@@ -208,6 +220,7 @@ declare module "@stencil/core" {
             "card-holder-input": LocalJSX.CardHolderInput & JSXBase.HTMLAttributes<HTMLCardHolderInputElement>;
             "credit-card-input": LocalJSX.CreditCardInput & JSXBase.HTMLAttributes<HTMLCreditCardInputElement>;
             "cvv-input": LocalJSX.CvvInput & JSXBase.HTMLAttributes<HTMLCvvInputElement>;
+            "error-message": LocalJSX.ErrorMessage & JSXBase.HTMLAttributes<HTMLErrorMessageElement>;
             "my-alert": LocalJSX.MyAlert & JSXBase.HTMLAttributes<HTMLMyAlertElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-tab": LocalJSX.MyTab & JSXBase.HTMLAttributes<HTMLMyTabElement>;
