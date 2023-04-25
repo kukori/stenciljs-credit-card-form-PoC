@@ -12,7 +12,7 @@ export class CreditCardInput {
   @Event() changed: EventEmitter<string>;
 
   private handleOnKeyDown = (event: KeyboardEvent) => {
-    if(!["0","1","2","3","4","5","6","7","8","9", "Backspace" ].includes(event.key) || (this.value.length > 2 && event.key !== "Backspace")) {
+    if(!["0","1","2","3","4","5","6","7","8","9", "Backspace", "Tab" ].includes(event.key) || (this.value.length > 2 && !["Backspace", "Tab"].includes(event.key))) {
       event.preventDefault();
     }
   }
@@ -28,6 +28,6 @@ export class CreditCardInput {
   }
 
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='CVV' />;
+    return <input tabIndex={2} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='CVV' />;
   }
 }

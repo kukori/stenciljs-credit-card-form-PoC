@@ -27,6 +27,6 @@ export class CreditCardInput {
   }
 
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='Cardholder Name' />;
+    return <input tabIndex={3} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='Cardholder Name' />;
   }
 }

@@ -13,7 +13,7 @@ export class CardExpirationInput {
 
   private handleOnKeyDown = (event: KeyboardEvent) => {
     console.log(event);
-    if(!["0","1","2","3","4","5","6","7","8","9", "Backspace" ].includes(event.key) || (this.value.length > 6 && event.key !== "Backspace")) {
+    if(!["0","1","2","3","4","5","6","7","8","9", "Backspace", "Tab"  ].includes(event.key) || (this.value.length > 6 && !["Backspace", "Tab"].includes(event.key))) {
       event.preventDefault();
     }
   }
@@ -49,6 +49,6 @@ export class CardExpirationInput {
   }
 
   render() {
-    return <input value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='MM / YY' />;
+    return <input tabIndex={1} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='MM / YY' />;
   }
 }
