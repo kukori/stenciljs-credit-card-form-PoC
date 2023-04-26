@@ -5,51 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AcknowledgeEvent } from "./components/my-alert/my-alert";
-import { TabActivateEvent } from "./components/my-tab/my-tab";
-export { AcknowledgeEvent } from "./components/my-alert/my-alert";
-export { TabActivateEvent } from "./components/my-tab/my-tab";
 export namespace Components {
     interface CardExpirationInput {
         "error": boolean;
+        "name": string;
     }
     interface CardFormContainer {
     }
     interface CardHolderInput {
         "error": boolean;
+        "name": string;
     }
     interface CreditCardInput {
         "error": boolean;
+        "name": string;
     }
     interface CvvInput {
         "error": boolean;
-    }
-    interface ErrorMessage {
-    }
-    interface MyAlert {
-        "kind": "info" | "success" | "error";
-        "text": string;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
-    interface MyTab {
-        "active": boolean;
         "name": string;
     }
-    interface MyTabs {
-        "activeTab": string;
+    interface ErrorMessage {
     }
 }
 export interface CardExpirationInputCustomEvent<T> extends CustomEvent<T> {
@@ -67,14 +42,6 @@ export interface CreditCardInputCustomEvent<T> extends CustomEvent<T> {
 export interface CvvInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLCvvInputElement;
-}
-export interface MyAlertCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMyAlertElement;
-}
-export interface MyTabCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMyTabElement;
 }
 declare global {
     interface HTMLCardExpirationInputElement extends Components.CardExpirationInput, HTMLStencilElement {
@@ -113,30 +80,6 @@ declare global {
         prototype: HTMLErrorMessageElement;
         new (): HTMLErrorMessageElement;
     };
-    interface HTMLMyAlertElement extends Components.MyAlert, HTMLStencilElement {
-    }
-    var HTMLMyAlertElement: {
-        prototype: HTMLMyAlertElement;
-        new (): HTMLMyAlertElement;
-    };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
-    interface HTMLMyTabElement extends Components.MyTab, HTMLStencilElement {
-    }
-    var HTMLMyTabElement: {
-        prototype: HTMLMyTabElement;
-        new (): HTMLMyTabElement;
-    };
-    interface HTMLMyTabsElement extends Components.MyTabs, HTMLStencilElement {
-    }
-    var HTMLMyTabsElement: {
-        prototype: HTMLMyTabsElement;
-        new (): HTMLMyTabsElement;
-    };
     interface HTMLElementTagNameMap {
         "card-expiration-input": HTMLCardExpirationInputElement;
         "card-form-container": HTMLCardFormContainerElement;
@@ -144,59 +87,32 @@ declare global {
         "credit-card-input": HTMLCreditCardInputElement;
         "cvv-input": HTMLCvvInputElement;
         "error-message": HTMLErrorMessageElement;
-        "my-alert": HTMLMyAlertElement;
-        "my-component": HTMLMyComponentElement;
-        "my-tab": HTMLMyTabElement;
-        "my-tabs": HTMLMyTabsElement;
     }
 }
 declare namespace LocalJSX {
     interface CardExpirationInput {
         "error"?: boolean;
+        "name"?: string;
         "onChanged"?: (event: CardExpirationInputCustomEvent<string>) => void;
     }
     interface CardFormContainer {
     }
     interface CardHolderInput {
         "error"?: boolean;
+        "name"?: string;
         "onChanged"?: (event: CardHolderInputCustomEvent<string>) => void;
     }
     interface CreditCardInput {
         "error"?: boolean;
+        "name"?: string;
         "onChanged"?: (event: CreditCardInputCustomEvent<string>) => void;
     }
     interface CvvInput {
         "error"?: boolean;
+        "name"?: string;
         "onChanged"?: (event: CvvInputCustomEvent<string>) => void;
     }
     interface ErrorMessage {
-    }
-    interface MyAlert {
-        "kind"?: "info" | "success" | "error";
-        "onAcknowledge"?: (event: MyAlertCustomEvent<AcknowledgeEvent>) => void;
-        "text"?: string;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
-    interface MyTab {
-        "active"?: boolean;
-        "name"?: string;
-        "onTabActivate"?: (event: MyTabCustomEvent<TabActivateEvent>) => void;
-    }
-    interface MyTabs {
-        "activeTab"?: string;
     }
     interface IntrinsicElements {
         "card-expiration-input": CardExpirationInput;
@@ -205,10 +121,6 @@ declare namespace LocalJSX {
         "credit-card-input": CreditCardInput;
         "cvv-input": CvvInput;
         "error-message": ErrorMessage;
-        "my-alert": MyAlert;
-        "my-component": MyComponent;
-        "my-tab": MyTab;
-        "my-tabs": MyTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -221,10 +133,6 @@ declare module "@stencil/core" {
             "credit-card-input": LocalJSX.CreditCardInput & JSXBase.HTMLAttributes<HTMLCreditCardInputElement>;
             "cvv-input": LocalJSX.CvvInput & JSXBase.HTMLAttributes<HTMLCvvInputElement>;
             "error-message": LocalJSX.ErrorMessage & JSXBase.HTMLAttributes<HTMLErrorMessageElement>;
-            "my-alert": LocalJSX.MyAlert & JSXBase.HTMLAttributes<HTMLMyAlertElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "my-tab": LocalJSX.MyTab & JSXBase.HTMLAttributes<HTMLMyTabElement>;
-            "my-tabs": LocalJSX.MyTabs & JSXBase.HTMLAttributes<HTMLMyTabsElement>;
         }
     }
 }
