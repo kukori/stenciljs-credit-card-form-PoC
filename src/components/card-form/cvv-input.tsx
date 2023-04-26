@@ -8,6 +8,7 @@ import { removeNaNFromString } from '../../utils/utils';
 })
 export class CreditCardInput {
   @Prop() error: boolean;
+  @Prop() name: string = "cvv";
   @State() value: string = "";
   @Event() changed: EventEmitter<string>;
 
@@ -28,6 +29,6 @@ export class CreditCardInput {
   }
 
   render() {
-    return <input tabIndex={2} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='CVV' />;
+    return <input tabIndex={2} name={this.name} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='CVV' />;
   }
 }

@@ -8,6 +8,7 @@ import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
 export class CreditCardInput {
   @Prop() error: boolean;
   @State() value: string = "";
+  @Prop() name: string = "card-holder";
   @Event() changed: EventEmitter<string>;
 
   private handleOnKeyDown = (event: KeyboardEvent) => {
@@ -27,6 +28,6 @@ export class CreditCardInput {
   }
 
   render() {
-    return <input tabIndex={3} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='Cardholder Name' />;
+    return <input tabIndex={3} name={this.name} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='Cardholder Name' />;
   }
 }

@@ -8,6 +8,7 @@ import { removeNaNFromString } from '../../utils/utils';
 })
 export class CardExpirationInput {
   @Prop() error: boolean;
+  @Prop() name: string = "expiration-date";
   @State() value: string = "";
   @Event() changed: EventEmitter<string>;
 
@@ -49,6 +50,6 @@ export class CardExpirationInput {
   }
 
   render() {
-    return <input tabIndex={1} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='MM / YY' />;
+    return <input tabIndex={1} name={this.name} value={this.value} onKeyDown={this.handleOnKeyDown} onInput={this.handleOnInput} class={this.getClass()} placeholder='MM / YY' />;
   }
 }
