@@ -9,16 +9,6 @@
     <script nomodule src="/build/my-components.js"></script>
   </head>
   <body style="background-color: #303030;">
-    <!-- <card-form-container></card-form-container> -->
-    <!-- <div style="display: flex;flex-direction: column;width: 460px;">
-      <credit-card-input></credit-card-input>
-      <div style="display: flex;width: 460px;">
-        <card-expiration-input slot="expiration"></card-expiration-input>
-        <cvv-input slot="cvv"></cvv-input>
-      </div>
-      <card-holder-input></card-holder-input>
-    </div> -->
-
     <card-form-container>
       <credit-card-input slot="credit-card"></credit-card-input>
       <card-expiration-input slot="expiration"></card-expiration-input>
@@ -29,6 +19,7 @@
     <div style="display: flex; flex-direction: column; margin-top: 8px;">
       <error-message>The card number is required</error-message>
     </div>
+    
     <script>
       const ccInput = document.querySelector('credit-card-input');
       ccInput.addEventListener('changed', event => { console.log(event) })  
