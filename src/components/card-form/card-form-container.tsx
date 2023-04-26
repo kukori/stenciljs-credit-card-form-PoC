@@ -9,12 +9,12 @@ export class CardFormContainer {
   render() {
     return (
       <div class="card-form-container">
-        <credit-card-input />
+        <slot name="credit-card"/>
         <div class="expiration-cvv-container">
-          <card-expiration-input slot="expiration" />
-          <cvv-input slot="cvv" />
+          <slot name="expiration"/>
+          <slot name="cvv" />
         </div>
-        <card-holder-input />
+        <slot name="card-holder"/>
       </div>);
   }
 }

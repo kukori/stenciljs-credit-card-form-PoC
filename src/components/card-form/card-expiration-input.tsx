@@ -13,7 +13,6 @@ export class CardExpirationInput {
   @Event() changed: EventEmitter<string>;
 
   private handleOnKeyDown = (event: KeyboardEvent) => {
-    console.log(event);
     if(!["0","1","2","3","4","5","6","7","8","9", "Backspace", "Tab"  ].includes(event.key) || (this.value.length > 6 && !["Backspace", "Tab"].includes(event.key))) {
       event.preventDefault();
     }
